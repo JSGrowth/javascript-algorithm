@@ -63,5 +63,22 @@ Javascript Algorithm Study
   - `solution.md`는 index.js에 대한 풀이를 작성한다.  
 <br><br>
 
+# Github Commit Convention
+
+- Branch naming
+    - `주차/작성자` 로 작성
+    - ex. `week1/nayeon`, `week1/sujeong`, `week1/soohyuk`
+
+- Commit message
+
+| type | usage |
+| --- | --- |
+| solve: | 새로운 문제 풀이 추가 |
+| fix: | 문제 풀이 수정 |
+| docs: | 문제 풀이 markdown 추가 |
+| comment: | 주석 추가 |
+| chore: | 자잘한 업무 수정 |
+
+<br><br>
     
 
