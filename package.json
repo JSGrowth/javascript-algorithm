@@ -6,12 +6,17 @@
   "repository": "https://github.com/JSGrowth/javascript-algorithm.git",
   "author": "Chloekkk <skdusdl8804@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "commit": "git-cz"
+  },
   "devDependencies": {
+    "@commitlint/config-conventional": "^17.0.3",
+    "@commitlint/prompt": "^17.0.3",
     "cz-conventional-changelog": "3.3.0"
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "@commitlint/prompt"
     }
   }
 }
