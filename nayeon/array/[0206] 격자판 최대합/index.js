@@ -5,7 +5,7 @@ function solution(arr) {
 
   for (let i = 0; i < n; i++) {
     const row_sum = arr[i].reduce((acc, cur) => acc + cur, 0);
-    const col_sum = arr[0].reduce((acc, _, idx) => acc + arr[i][idx], 0);
+    const col_sum = arr[0].reduce((acc, _, idx) => acc + arr[idx][i], 0);
     max = Math.max(Math.max(row_sum, col_sum), max);
   }
   const diagonal1 = arr[0].reduce((acc, _, i) => acc + arr[i][i], 0);
