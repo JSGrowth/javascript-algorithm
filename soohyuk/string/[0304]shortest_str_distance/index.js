@@ -1,14 +1,14 @@
 function solution(str, c) {
 	let answer = [];
 
-	let distance = -1;
+	let distance = str.length;
 	for (let i = 0; i < str.length; i++) {
 		if (str[i] === c) distance = 0;
 		else distance++;
 
 		answer.push(distance);
 	}
-	distance = -1;
+	distance = str.length;
 	for (let i = str.length - 1; i >= 0; i--) {
 		if (str[i] === c) distance = 0;
 		else distance++;
