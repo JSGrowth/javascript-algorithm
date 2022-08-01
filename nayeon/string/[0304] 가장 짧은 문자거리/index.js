@@ -8,8 +8,8 @@ function solution(s, t) {
     if (value === "e") answer += 0;
     else
       answer += Math.min(...t_index.map((v) => Math.abs(parseInt(v - index))));
+	answer += " ";
   });
-  answer = answer.split("").join(" ");
   return answer;
 }
 
