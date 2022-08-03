@@ -19,11 +19,11 @@ function solution(arr, n) {
 	let answer = 0;
 	let sum = 0;
 
-	for (let i = 0; i < n; i++) sum += arr[i];
+	for (let i = 0; i < n; i++) sum += arr[i]; // 1, 2, 3 일차
 	answer = sum;
 
 	for (let i = n; i < arr.length; i++) {
-		sum += arr[i] - arr[i - n];
+		sum += arr[i] - arr[i - n]; // 1, 2, 3 일차 - 4일차 + 1일차
 		answer = Math.max(answer, sum);
 	}
 	return answer;

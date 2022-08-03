@@ -3,6 +3,8 @@
 
 	 time complexity : O(n)
 	 space complexity : O(1)
+
+	 time: 7.003ms
  */
 console.time('time');
 function solution(arr1, arr2) {
