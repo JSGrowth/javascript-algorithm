@@ -1,3 +1,8 @@
+/*
+	time: 9.858ms
+*/
+
+console.time("time");
 function solution(arr1, arr2) {
   let p1 = 0,
     p2 = 0;
@@ -14,9 +19,11 @@ function solution(arr1, arr2) {
       answer.push(arr2[p2++]);
     }
   }
+
   return answer;
 }
 
 let a = [1, 3, 5];
 let b = [2, 3, 6, 7, 9];
 console.log(solution(a, b));
+console.timeEnd("time");
