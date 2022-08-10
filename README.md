@@ -13,7 +13,7 @@ Javascript Algorithm Study
 <br><br>
 
 ### 🕐 Time
-- 매주 수요일 1시 ~ unlimited
+- 매주 목요일 2시 ~ unlimited
 <br><br>
 
 ### 📌 Todo
