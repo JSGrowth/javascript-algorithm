@@ -1,5 +1,5 @@
 // 풀이시간(소요시간)
-// 20분 (12.352ms)
+// 20분+12분 (11.019ms)
 
 // 아이디어
 // 종료시간을 기준으로 강의들을 내림차순 하고, 하나씩 강의를 가져와 timeline의 마지막에 추가된 강의의 시작시간보다 종료시간이 이전이면 강의를 추가한다.
@@ -9,14 +9,14 @@
 
 console.time(`time`);
 function solution(meeting) {
-  meeting.sort((a, b) => b[1] - a[1]);
+  meeting.sort((a, b) => a[1] === b[1] ? a[0] - b[0] : a[1] - b[1]);
   let timeline = [];
   for (let m of meeting) {
-    if (timeline.length === 0 || timeline[timeline.length - 1][0] >= m[1]) {
+    if (timeline.length === 0 || timeline[timeline.length - 1][1] <= m[0]) {
       timeline.push(m);
     }
   }
-  return timeline;
+  return timeline.length;
 }
 
 let arr = [
