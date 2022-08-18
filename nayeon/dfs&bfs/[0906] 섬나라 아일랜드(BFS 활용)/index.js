@@ -1,3 +1,5 @@
+// time: 6.334ms
+console.time("time");
 function solution(board) {
   let inum = 2;
   const dx = [1, 0, -1, 0, 1, -1, 1, -1];
@@ -51,3 +53,4 @@ let arr = [
 ];
 
 console.log(solution(arr));
+console.timeEnd("time");
