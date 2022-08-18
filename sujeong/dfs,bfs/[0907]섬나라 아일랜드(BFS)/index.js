@@ -3,13 +3,13 @@
 
 // 아이디어
 // board의 모든 지역을 탐색하며 1이 나오면 그 부분을 시작으로 islandNum을 갱신해나감.
-// 그렇게 모든 섬을 발견하면서 islandNum을 찾으면 islandNum-1을 양수로 바꾼 값이 총 섬의 개수가 됨.
+// 그렇게 모든 섬을 발견하면서 islandNum을 찾으면 islandNum을 양수로 바꾼 값이 총 섬의 개수가 됨.
 
 // 개선과정
 // 딱히 안보임.
 
 console.time(`time`);
-const dist = [[1, 0], [0, 1], [-1, 0], [0, -1]];
+const dist = [[1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [-1, -1], [1, -1], [-1, 1]];
 function solution(board) {  
     function bfs(coord) {
         // 좌표를 큐에 넣고 좌표를 방문한 것으로 표시
@@ -35,18 +35,17 @@ function solution(board) {
     }
 
     // 섬의 번호를 음수로 간직
-    let islandNum = -1;
+    let islandNum = 0;
     for(let x = 0; x < board.length; x++) {
         for (let y = 0; y < board[x].length; y++) {
             // 탐색하지않은 땅인 경우(0=바다, -1이하는 이미 방문한 섬)
             if(board[x][y] === 1) {
-                bfs([x,y]);
                 islandNum--;
+                bfs([x,y]);
             }
         }
     }
-    // +1을 해줌으로써 위의 이중 for문 내의 if문에서 마지막에 islandNum--한걸 상쇄시킴. 그리고 -를 달아줌으로써 양수로 수를 변환
-    return -islandNum+1;
+    return -islandNum;
 }
 
 let arr=[[1, 1, 0, 0, 0, 1, 0], 
