@@ -6,7 +6,8 @@
 // DFS함수를 만들어 한 노드에 연결된 다음 노드를 탐색하면서 visited를 체크하고, 이미 vistied가 체크되었다면 탐색이 되지않도록 하여 정답을 찾는 방식
 
 // 개선과정
-// 딱히 안보임.
+// 1.for문에서 val을 받아 nextArr을 가져오는 방식에서 cont[val, nVal]로 한번에 가져오도록 변경
+// 2. nodeArr을 미리 만들고 진행하는 방식에서 nodeArr에 추가가 있을때만 만드는 방식으로 변경
 
 console.time(`time`);
 
@@ -28,37 +29,33 @@ class Node {
 let nodeArr = [];
 let ans = 0;
 function solution(n, arr) {
-  // makeArr
+  // Initialize
   nodeArr = new Array(n + 1);
-  for (let i = 1; i <= n; i++) nodeArr[i] = new Node(i);
-
-  // initialize
-  for (let i = 0; i < arr.length; i++) {
-    let val = arr[i][0];
-    let nextVal = arr[i][1];
-    nodeArr[val].addNext(nextVal);
+  for (const [val, nVal] of arr) {
+    if (!nodeArr[val]) nodeArr[val] = new Node(val);
+    nodeArr[val].addNext(nVal);
   }
 
-  //   console.log(nodeArr);
-  // find ans
+  // Logic
   let visited = new Array(n + 1).fill(false);
+  function searchDFS(val) {
+    if (!nodeArr[val]) return;
+    let nextArr = nodeArr[val].getNext();
+    for (let i = 0; i < nextArr.length; i++) {
+      let nVal = nextArr[i];
+      if (visited[nVal]) continue;
+      if (nVal === n) ans++;
+      visited[nVal] = true;
+      searchDFS(nVal);
+      visited[nVal] = false;
+    }
+  }
+  // find ans
   visited[1] = true;
-  searchDFS(1, visited, `1 ->`);
+  searchDFS(1);
   return ans;
 }
 
-function searchDFS(val, visited, path) {
-  let nextArr = nodeArr[val].getNext();
-  for (let i = 0; i < nextArr.length; i++) {
-    let nVal = nextArr[i];
-    if (!nodeArr[nVal] || visited[nVal]) continue;
-    if (nVal === 5) ans++;
-    // path += `${nVal} ->`;
-    visited[nVal] = true;
-    searchDFS(nVal, visited, path);
-    visited[nVal] = false;
-  }
-}
 
 let arr = [
   [1, 2],
