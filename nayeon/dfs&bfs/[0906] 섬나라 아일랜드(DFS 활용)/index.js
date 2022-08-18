@@ -1,14 +1,16 @@
+// time: 6.246ms
+console.time("time");
 function solution(board) {
   let inum = 2;
-  const dx = [1, 0, -1, 0];
-  const dy = [0, 1, 0, -1];
+  const dx = [1, 0, -1, 0, 1, -1, 1, -1];
+  const dy = [0, 1, 0, -1, 1, -1, -1, 1];
 
   function dfs(i, j) {
     board[i][j] = inum;
 
-    for (let k = 0; k < 4; k++) {
+    for (let k = 0; k < 8; k++) {
       const ni = i + dx[k];
-      const nj = i + dy[k];
+      const nj = j + dy[k];
       if (
         ni !== board.length &&
         ni !== -1 &&
@@ -28,7 +30,7 @@ function solution(board) {
       }
     }
   }
-  return inum - 1;
+  return inum - 2;
 }
 
 let arr = [
@@ -42,3 +44,4 @@ let arr = [
 ];
 
 console.log(solution(arr));
+console.timeEnd("time");
