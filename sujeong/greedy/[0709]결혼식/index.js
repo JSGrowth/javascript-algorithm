@@ -6,6 +6,7 @@
 
 // 개선과정
 // (딱히 안보임)
+// => 모든 참석자가 풀시간 참석하면 O^2가 될수도 있다
 
 console.time(`time`);
 function solution(times) {
